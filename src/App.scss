@@ -1,4 +1,8 @@
-@import '/styles/variables.scss';
-@import '/styles/base.scss';
-@import '/styles/typography.scss';
-@import '/styles/grid.scss';
+@import './styles/variables.scss';
+@import './styles/base.scss';
+@import './styles/typography.scss';
+@import './styles/grid.scss';
+
+@import './styles/components/main.scss';
+@import './styles/components/players.scss';
+@import './styles/components/player.scss';

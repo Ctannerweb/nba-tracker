@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Player from './player';
 
 class Players extends Component {
   constructor(props) {
@@ -24,8 +25,7 @@ class Players extends Component {
     .then(response => response.json())
     .then(parsedJSON => parsedJSON.api.players.map(players => (
       {
-        firstName: `${players.firstName}`,
-        lastName: `${players.lastName}`,
+        name: `${players.firstName} ${players.lastName}`,
         yearsPro: `${players.yearsPro}`,
       }
     )))
@@ -40,18 +40,16 @@ class Players extends Component {
     const {players, isLoading, index} = this.state
 
     return (
-      <div>
+      <ul className="players grid">
         {
           !isLoading && players.length > 0 ? players.map(players => {
             return (
-              <div key={index}>
-                <p>{players.firstName + ' ' + players.lastName + ' ' + 'Years Pro:' + players.yearsPro}</p>
-              </div>
+              <Player key={index} players={players} />
             )
           }) : null
         }
         <p>{isLoading ? "Loading True" : "Loading False"}</p>
-      </div>
+      </ul>
     )
   }
 }
